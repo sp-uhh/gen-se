@@ -142,7 +142,12 @@ layout: default
     Results
 </h2>
 
-html
+<p>
+    We evaluate the performance of the proposed models on the VoiceBank-Demand (VB-DMD) dataset. The results are 
+    summarized in the table below. Models M1-M4 are based on SGMSE <span class="reference" data-ref="sgmse"></span>, 
+    while M5-M8 are based on the Schrödinger bridge framework <span class="reference" data-ref="sbse"></span>.
+</p>
+
 <div class="table-container">
     <table style="width:100%; border-collapse: collapse;">
         <caption style="caption-side: bottom; text-align: left; padding: 8px; font-style: italic;">
@@ -168,7 +173,7 @@ html
                 <td style="text-align: right;">3.09</td>
             </tr>
             <tr>
-                <td>Conv-TasNet+</td>
+                <td>Conv-TasNet <span class="reference" data-ref="convtasnet"></span></td>
                 <td style="text-align: right;">3.56</td>
                 <td style="text-align: right;">2.63</td>
                 <td style="text-align: right;">19.1</td>
@@ -176,7 +181,7 @@ html
                 <td style="text-align: right;">3.37</td>
             </tr>
             <tr>
-                <td>MetricGAN+</td>
+                <td>MetricGAN+ <span class="reference" data-ref="metricgan"></span></td>
                 <td style="text-align: right;">3.72</td>
                 <td style="text-align: right;">3.13</td>
                 <td style="text-align: right;">8.5</td>
@@ -184,15 +189,15 @@ html
                 <td style="text-align: right;">3.37</td>
             </tr>
             <tr>
-                <td>SE-MAMBA</td>
+                <td>SE-MAMBA <span class="reference" data-ref="se-mamba"></span></td>
                 <td style="text-align: right;"><strong>4.33</strong></td>
                 <td style="text-align: right;">3.56</td>
                 <td style="text-align: right;"><strong>19.7</strong></td>
                 <td style="text-align: right;"><strong>0.89</strong></td>
                 <td style="text-align: right;">3.58</td>
             </tr>
-            <tr>
-                <td>SGMSE+</td>
+            <tr style="border-bottom: 2px solid black;">
+                <td>SGMSE+ <span class="reference" data-ref="sgmse"></span></td>
                 <td style="text-align: right;">3.95</td>
                 <td style="text-align: right;">2.93</td>
                 <td style="text-align: right;">17.3</td>
@@ -413,10 +418,11 @@ html
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const references = {
-            "convtasnet": "Y. Luo and N. Mesgarani, “Conv-TasNet: Surpassing ideal time–frequency magnitude masking for speech separation,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 27, no. 8, pp. 1256–1266, 2019.",
-            "cdiffuse": "Y.-J. Lu, Z.-Q. Wang, S. Watanabe, A. Richard, C. Yu, and Y. Tsao, “Conditional diffusion probabilistic model for speech enhancement,” in IEEE International Conference on Acoustics, Speech and Signal Processing, 2022, pp. 7402–7406.",
-            "demucs": "S. Rouard, F. Massa, and A. Défossez, “Hybrid transformers for music source separation,” in IEEE International Conference on Acoustics, Speech and Signal Processing, 2023.",
             "sgmse": "J. Richter, S. Welker, J.-M. Lemercier, B. Lay, and T. Gerkmann, “Speech enhancement and dereverberation with diffusion-based generative models,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 31, pp. 2351–2364, 2023.",
+            "sbse": "A. Jukić, R. Korostik, J. Balam, and B. Ginsburg, “Schrödinger bridge for generative speech enhancement,” ISCA Interspeech, pp. 1175-1179, 2024.",
+            "convtasnet": "Y. Luo and N. Mesgarani, “Conv-TasNet: Surpassing ideal time–frequency magnitude masking for speech separation,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 27, no. 8, pp. 1256–1266, 2019.",
+            "metricgan": "S.-W. Fu, C. Yu, T.-A. Hsieh, P. Plantinga, M. Ravanelli, X. Lu, and Y. Tsao, “MetricGAN+: An improved version of MetricGAN for speech enhancement,” ISCA Interspeech, pp. 201-205, 2021.",
+            "se-mamba": "R.Chao, W.-H.Cheng, M.LaQuatra, S.M.Siniscalchi, C.-H.H. Yang, S.-W. Fu, and Y. Tsao, “An investigation of incorporating mamba for speech enhancement,” arXiv preprint arXiv:2405.06573, 2024.",
         };
 
         // Collect keys in order of their appearance, without duplication
