@@ -120,48 +120,23 @@ layout: default
 </style>
 
 <h1>
-    Headline
+    Investigating Training Objectives for Generative Speech Enhancement
 </h1>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
-    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero 
-    eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
-    dolor sit amet.
+    Generative speech enhancement has recently shown promising advancements in improving speech quality in noisy 
+    environments. Multiple diffusion-based frameworks exist, each employing distinct training objectives and learning 
+    techniques. This paper aims at explaining the differences between these frameworks by focusing our investigation on 
+    score-based generative models and Schrödinger bridge. We conduct a series of comprehensive experiments to compare 
+    their performance and highlight differing training behaviors. Furthermore, we propose a novel perceptual loss 
+    function tailored for the Schrödinger bridge framework, demonstrating enhanced performance and improved perceptual 
+    quality of the enhanced speech signals. All experimental code and pre-trained models are publicly available to 
+    facilitate further research and development in this domain.
 </p>
 
 <h2>
     Audio Examples
 </h2>
-
-<p>
-    p002/emo_adoration_sentences.wav<br>
-    <audio controls>
-        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p002_emo_adoration_sentences.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-    <br>
-
-    p008/emo_contentment_sentences.wav<br>
-    <audio controls>
-        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p008_emo_contentment_sentences.wav" type="audio/wav">
-        Your browser does not support the audio element.
-        </audio>
-    <br>
-
-    p010/emo_cuteness_sentences.wav<br>
-    <audio controls>
-        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p010_emo_cuteness_sentences.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-    <br>
-</p>
-
-<h3>
-    With dropdown menu 
-</h3>
 
 <p>Select an audio file: &nbsp;&nbsp;
     <select id="audioSelect" onchange="playAudio()">
@@ -255,31 +230,21 @@ layout: default
 </script>
 <br>
 
-<h2>
-    Youtube embedding 
-</h2>
-
-<div class="video-container">
-    <iframe src="https://www.youtube.com/embed/H5FiO0JxPK4" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<br>
-
 <h2 id="citation">
     Citation
 </h2>
 
 <div class="container">
-    <div class="inner-container" dir="auto" data-snippet-clipboard-copy-content="{% raw %}@inproceedings{richter2024ears,
-    title={{EARS}: An Anechoic Fullband Speech Dataset Benchmarked for Speech Enhancement and Dereverberation},
-    author={Richter, Julius and Wu, Yi-Chiao and Krenn, Steven and Welker, Simon and Lay, Bunlong and Watanabe, Shinjii and Richard, Alexander and Gerkmann, Timo},
-    booktitle={ISCA Interspeech},
+    <div class="inner-container" dir="auto" data-snippet-clipboard-copy-content="{% raw %}@article{richter2024investigating,
+    title={Investigating Training Objectives for Generative Speech Enhancement},
+    author={Julius Richter and Danilo de Oliveira and Timo Gerkmann},
+    journal={arXiv preprint arXiv:},
     year={2024}
 }{% endraw %}">
-<pre><code>{% raw %}@inproceedings{richter2024ears,
-    title={{EARS}: An Anechoic Fullband Speech Dataset Benchmarked for Speech Enhancement and Dereverberation},
-    author={Richter, Julius and Wu, Yi-Chiao and Krenn, Steven and Welker, Simon and Lay, Bunlong and Watanabe, Shinjii and Richard, Alexander and Gerkmann, Timo},
-    booktitle={ISCA Interspeech},
+<pre><code>{% raw %}@article{richter2024investigating,
+    title={Investigating Training Objectives for Generative Speech Enhancement},
+    author={Julius Richter and Danilo de Oliveira and Timo Gerkmann},
+    journal={arXiv preprint arXiv:},
     year={2024}
 }{% endraw %}</code></pre>
     </div>

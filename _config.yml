@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Investigating Training Objectives for Generative Speech Enhancement
+title: Generative Speech Enhancement
 logo: /assets/img/uhh_logo.svg
 email: # your email address
 description: >- # this means to ignore newlines until "baseurl:"
