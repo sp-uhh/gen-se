@@ -1,0 +1,429 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+---
+
+<style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: #000;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    audio {
+       width: 100%;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+   .table-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile devices */
+    }
+    html, body {
+        margin: 5px; /* Get rid of default margins */
+        padding: 5px; /* Get rid of default padding */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+    th, td {
+        padding: 4px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 1em; /* Base font size */
+        white-space: nowrap;
+    }
+    p {
+        text-align: justify;
+        hyphens: auto;
+    }   
+    div {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+    /* Define a class for left-aligned text */
+    .left-align {
+        text-align: left;
+        hyphens: none;
+    } 
+    .container {
+        max-width: 100%;
+        background-color: #f4f4f4;
+        align-items: left;
+        overflow-x: auto; /* Handle overflow */
+        padding: 0;
+        margin: 0 auto;
+        position: relative; 
+    }
+    .inner-container {
+        width: calc(100% - 30px);
+        background-color: #f4f4f4;
+        align-items: left;
+        padding: 0;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative; /* Relative positioning for absolute child positioning */
+    }
+    pre {
+        width: calc(100% - 30px);
+        background-color: #f4f4f4;
+        border: 0;
+        padding: 0px;
+        overflow: auto;
+        border-radius: 0px;
+        margin: 0;
+    }
+    code {
+        font-family: monospace;
+        padding: 0px;
+        margin: 0;
+    }
+    .highlight {
+        cursor: pointer;
+        padding: 4px 4px;
+        background-color: #f4f4f4;
+        border: 0;
+        color: white;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        position: absolute;
+        top: 0; /* Position the button at the top */
+        right: 0; /* Position the button at the right edge */
+        margin: 5px; /* Small margin for aesthetics */
+    }
+    
+    .highlight svg {
+        fill: #4e4e4e;
+        margin-right: 5px;
+    }
+
+    .highlight:hover {
+        background-color: #d3d3d3;
+    }
+</style>
+
+<h1>
+    Headline
+</h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
+    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
+    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero 
+    eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+    dolor sit amet.
+</p>
+
+<h2>
+    Audio Examples
+</h2>
+
+<p>
+    p002/emo_adoration_sentences.wav<br>
+    <audio controls>
+        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p002_emo_adoration_sentences.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <br>
+
+    p008/emo_contentment_sentences.wav<br>
+    <audio controls>
+        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p008_emo_contentment_sentences.wav" type="audio/wav">
+        Your browser does not support the audio element.
+        </audio>
+    <br>
+
+    p010/emo_cuteness_sentences.wav<br>
+    <audio controls>
+        <source src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears/p010_emo_cuteness_sentences.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <br>
+</p>
+
+<h3>
+    With dropdown menu 
+</h3>
+
+<p>Select an audio file: &nbsp;&nbsp;
+    <select id="audioSelect" onchange="playAudio()">
+        <option value="p102/00252_4.9dB">p102/00252_4.9dB</option>
+    <option value="p103/00464_11.8dB">p103/00464_11.8dB</option>
+    <option value="p104/00814_11.3dB">p104/00814_11.3dB</option>
+    <option value="p105/00735_0.4dB">p105/00735_0.4dB</option>
+    <option value="p106/00049_5.4dB">p106/00049_5.4dB</option>
+    <option value="p107/00519_8.1dB">p107/00519_8.1dB</option>
+    </select>
+</p>
+
+<p>
+    Noisy: <br>
+    <audio id="audioPlayerNoisy" controls>
+        <source id="audioSourceNoisy" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/noisy/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    Conv-TasNet <span class="reference" data-ref="convtasnet"></span>:<br>
+    <audio id="audioPlayerConvTasNet" controls>
+        <source id="audioSourceConvTasNet" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/convtasnet/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    CDiffuSE <span class="reference" data-ref="cdiffuse"></span>:<br>
+    <audio id="audioPlayerCDiffuSE" controls>
+        <source id="audioSourceCDiffuSE" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/cdiffuse/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    Demucs <span class="reference" data-ref="demucs"></span>:<br>
+    <audio id="audioPlayerDemucs" controls>
+        <source id="audioSourceDemucs" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/demucs/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    SGMSE+ <span class="reference" data-ref="sgmse"></span>:<br>
+    <audio id="audioPlayerSGMSE" controls>
+        <source id="audioSourceSGMSE" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/sgmse/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    Clean: <br>
+    <audio id="audioPlayerClean" controls>
+        <source id="audioSourceClean" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/clean/p102/00252_4.9dB.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+</p>
+
+<script>
+    function playAudio() {
+        var audioPlayerNoisy = document.getElementById('audioPlayerNoisy');
+        var audioPlayerConvTasNet = document.getElementById('audioPlayerConvTasNet');
+        var audioPlayerCDiffuSE = document.getElementById('audioPlayerCDiffuSE');
+        var audioPlayerDemucs = document.getElementById('audioPlayerDemucs');
+        var audioPlayerSGMSE = document.getElementById('audioPlayerSGMSE');
+        var audioPlayerClean = document.getElementById('audioPlayerClean');
+        var audioSourceNoisy = document.getElementById('audioSourceNoisy');
+        var audioSourceConvTasNet = document.getElementById('audioSourceConvTasNet');
+        var audioSourceCDiffuSE = document.getElementById('audioSourceCDiffuSE');
+        var audioSourceDemucs = document.getElementById('audioSourceDemucs');
+        var audioSourceSGMSE = document.getElementById('audioSourceSGMSE');
+        var audioSourceClean = document.getElementById('audioSourceClean');
+        var selectedAudio = document.getElementById('audioSelect').value;
+
+        if (selectedAudio) {
+            // Set the source of the source elements, not the audio players
+            audioSourceNoisy.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/noisy/" + selectedAudio + ".wav";
+            audioPlayerNoisy.load(); // Load the selected audio file using the audio player
+
+            audioSourceConvTasNet.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/convtasnet/" + selectedAudio + ".wav";
+            audioPlayerConvTasNet.load(); // Load the selected audio file using the audio player
+
+            audioSourceCDiffuSE.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/cdiffuse/" + selectedAudio + ".wav";
+            audioPlayerCDiffuSE.load(); // Load the selected audio file using the audio player
+
+            audioSourceDemucs.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/demucs/" + selectedAudio + ".wav";
+            audioPlayerDemucs.load(); // Load the selected audio file using the audio player
+
+            audioSourceSGMSE.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/sgmse/" + selectedAudio + ".wav";
+            audioPlayerSGMSE.load(); // Load the selected audio file using the audio player
+
+            audioSourceClean.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/clean/" + selectedAudio + ".wav";
+            audioPlayerClean.load(); // Load the selected audio file using the audio player
+
+            // This will ensure that the audio players are updating their children source elements
+            // and reloading them
+        }
+    }
+</script>
+<br>
+
+<h2>
+    Youtube embedding 
+</h2>
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/H5FiO0JxPK4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<br>
+
+<h2 id="citation">
+    Citation
+</h2>
+
+<div class="container">
+    <div class="inner-container" dir="auto" data-snippet-clipboard-copy-content="{% raw %}@inproceedings{richter2024ears,
+    title={{EARS}: An Anechoic Fullband Speech Dataset Benchmarked for Speech Enhancement and Dereverberation},
+    author={Richter, Julius and Wu, Yi-Chiao and Krenn, Steven and Welker, Simon and Lay, Bunlong and Watanabe, Shinjii and Richard, Alexander and Gerkmann, Timo},
+    booktitle={ISCA Interspeech},
+    year={2024}
+}{% endraw %}">
+<pre><code>{% raw %}@inproceedings{richter2024ears,
+    title={{EARS}: An Anechoic Fullband Speech Dataset Benchmarked for Speech Enhancement and Dereverberation},
+    author={Richter, Julius and Wu, Yi-Chiao and Krenn, Steven and Welker, Simon and Lay, Bunlong and Watanabe, Shinjii and Richard, Alexander and Gerkmann, Timo},
+    booktitle={ISCA Interspeech},
+    year={2024}
+}{% endraw %}</code></pre>
+    </div>
+    <button id="copyButton" class="highlight">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-clippy">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+    </button>
+</div>
+
+<script>
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const codeContent = document.querySelector('div[data-snippet-clipboard-copy-content]').getAttribute('data-snippet-clipboard-copy-content');
+        navigator.clipboard.writeText(codeContent).then(function() {
+        }, function() {
+            alert('Failed to copy!');
+        });
+    });
+</script>
+
+<br>
+
+<h2>
+    References
+</h2>
+
+<ol id="refList" style="list-style-type: none; padding: 0;">
+    <!-- JavaScript will populate this list -->
+</ol>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const references = {
+            "convtasnet": "Y. Luo and N. Mesgarani, “Conv-TasNet: Surpassing ideal time–frequency magnitude masking for speech separation,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 27, no. 8, pp. 1256–1266, 2019.",
+            "cdiffuse": "Y.-J. Lu, Z.-Q. Wang, S. Watanabe, A. Richard, C. Yu, and Y. Tsao, “Conditional diffusion probabilistic model for speech enhancement,” in IEEE International Conference on Acoustics, Speech and Signal Processing, 2022, pp. 7402–7406.",
+            "demucs": "S. Rouard, F. Massa, and A. Défossez, “Hybrid transformers for music source separation,” in IEEE International Conference on Acoustics, Speech and Signal Processing, 2023.",
+            "sgmse": "J. Richter, S. Welker, J.-M. Lemercier, B. Lay, and T. Gerkmann, “Speech enhancement and dereverberation with diffusion-based generative models,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 31, pp. 2351–2364, 2023.",
+        };
+
+        // Collect keys in order of their appearance, without duplication
+        const referenceElements = document.querySelectorAll('.reference');
+        const orderedKeys = [];
+        referenceElements.forEach(element => {
+            // Split the keys and iterate over them
+            const keys = element.dataset.ref.split(' ');
+            keys.forEach(key => {
+                // Add key if it's not already in the list to maintain first appearance order
+                if (!orderedKeys.includes(key) && references[key]) {
+                    orderedKeys.push(key);
+                }
+            });
+        });
+        let sortedReferences = {};
+        // Populate the sorted references object based on orderedKeys
+        orderedKeys.forEach(key => {
+            if (references[key]) {
+                sortedReferences[key] = references[key];
+            }
+        });
+
+        function changeId(element) {
+            // Change the id of the clicked element to the next one
+            key = element.id.split('-')[1];
+            elem = document.getElementById(`link-${key}`);
+            elem.href = `#${element.id}`;
+        }
+
+        const refList = document.getElementById('refList');
+        const refTotal = Object.keys(sortedReferences).length;
+        const maxWidth = `${Math.ceil(Math.log10(refTotal + 1)) * 10 + 5}px`;
+
+        Object.entries(sortedReferences).forEach(([key, ref], index) => {
+            const refNumber = index + 1;
+            const li = document.createElement('li');
+            li.id = `ref-${refNumber}`;
+            li.style.display = 'flex';
+            li.style.alignItems = 'baseline';
+            li.style.marginBottom = '5px';
+
+            const numberSpan = document.createElement('span');
+            numberSpan.style.fontWeight = 'regular';
+            numberSpan.style.minWidth = maxWidth;
+            numberSpan.style.textAlign = 'right';
+            numberSpan.style.marginRight = '10px';
+            numberSpan.style.whiteSpace = 'nowrap';
+
+            const numberLink = document.createElement('a');
+            numberLink.href = `#cite-${key}-0`; 
+            numberLink.id = `link-${key}`;
+            numberLink.textContent = `[${refNumber}]`;
+            numberLink.style.textDecoration = 'none';
+            numberSpan.appendChild(numberLink);
+
+            const textSpan = document.createElement('span');
+            textSpan.textContent = ref;
+
+            li.appendChild(numberSpan);
+            li.appendChild(textSpan);
+            refList.appendChild(li);
+        });
+
+        referenceCounter = {};
+        // Making In-text references linkable and combine multiple references
+        document.querySelectorAll('.reference').forEach(span => {
+            const keys = span.getAttribute('data-ref').split(' ');
+            const refNumbers = keys.map(key => {
+                const index = Object.keys(sortedReferences).indexOf(key);
+                return index + 1;
+            });
+            keys.forEach((key, i) => {
+                if (referenceCounter[key] >= 0) {
+                    referenceCounter[key]++;
+                } else {
+                    referenceCounter[key] = 0;
+                }
+
+                // Set up string if there are multiple references
+                if (keys.length > 1) {
+                    if (i === 0) {
+                        refText = `[${refNumbers[i]}, `;
+                    } else if (i === keys.length - 1) {
+                        refText = `${refNumbers[i]}]`;
+                    } else {
+                        refText = `${refNumbers[i]}, `;
+                    }
+                // Set up string if there is only one reference
+                } else {
+                    refText = `[${refNumbers[i]}]`;
+                }
+
+                const citeId = `cite-${key}-${referenceCounter[key]}`;
+                const citeLink = document.createElement('a');
+                citeLink.href = `#ref-${refNumbers[i]}`;
+                citeLink.textContent = refText;
+                citeLink.id = citeId;
+                citeLink.style.textDecoration = 'none';
+                citeLink.addEventListener('click', function () {
+                    changeId(this);
+                });
+
+                span.appendChild(citeLink);
+            });
+        });
+
+    });
+</script>
