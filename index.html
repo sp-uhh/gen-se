@@ -144,8 +144,9 @@ layout: default
 
 <p>
     We evaluate the performance of the proposed models on the VoiceBank-Demand (VB-DMD) dataset. The results are 
-    summarized in the table below. Models M1-M4 are based on SGMSE <span class="reference" data-ref="sgmse"></span>, 
-    while M5-M8 are based on the Schrödinger bridge framework <span class="reference" data-ref="sbse"></span>.
+    summarized in the table below. Models M1-M4 are based on score-based generative models for speech enhancement 
+    (SGMSE) <span class="reference" data-ref="sgmse"></span>, while M5-M8 are based on the Schrödinger bridge framework 
+    <span class="reference" data-ref="sbse"></span>.
 </p>
 
 <div class="table-container">
@@ -164,7 +165,7 @@ layout: default
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr style="border-top: 2px solid black; border-bottom: 2px solid black;"><
                 <td>Noisy</td>
                 <td style="text-align: right;">3.11</td>
                 <td style="text-align: right;">1.97</td>
@@ -279,88 +280,203 @@ layout: default
 
 <p>Select an audio file: &nbsp;&nbsp;
     <select id="audioSelect" onchange="playAudio()">
-        <option value="p102/00252_4.9dB">p102/00252_4.9dB</option>
-    <option value="p103/00464_11.8dB">p103/00464_11.8dB</option>
-    <option value="p104/00814_11.3dB">p104/00814_11.3dB</option>
-    <option value="p105/00735_0.4dB">p105/00735_0.4dB</option>
-    <option value="p106/00049_5.4dB">p106/00049_5.4dB</option>
-    <option value="p107/00519_8.1dB">p107/00519_8.1dB</option>
+        <option value="p257_259">p257_259</option>
+        <option value="p232_085">p232_085</option>
+        <option value="p257_010">p257_010</option>
+        <option value="p232_310">p232_310</option>
+        <option value="p257_323">p257_323</option>
+        <option value="p232_217">p232_217</option>
+        <option value="p257_026">p257_026</option>
+        <option value="p232_362">p232_362</option>
+        <option value="p257_040">p257_040</option>
+        <option value="p232_325">p232_325</option>
+        <option value="p257_097">p257_097</option>
+        <option value="p232_198">p232_198</option>
+        <option value="p257_306">p257_306</option>
+        <option value="p232_017">p232_017</option>
+        <option value="p257_225">p257_225</option>
+        <option value="p232_293">p232_293</option>
+        <option value="p257_048">p257_048</option>
+        <option value="p232_054">p232_054</option>
+        <option value="p257_132">p257_132</option>
+        <option value="p232_038">p232_038</option>
+        <option value="p257_066">p257_066</option>
+        <option value="p232_413">p232_413</option>
+        <option value="p257_419">p257_419</option>
+        <option value="p232_257">p232_257</option>
+        <option value="p257_186">p257_186</option>
+        <option value="p232_368">p232_368</option>
+        <option value="p257_365">p257_365</option>
+        <option value="p232_272">p232_272</option>
+        <option value="p257_324">p257_324</option>
+        <option value="p232_061">p232_061</option>
     </select>
 </p>
 
 <p>
     Noisy: <br>
     <audio id="audioPlayerNoisy" controls>
-        <source id="audioSourceNoisy" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/noisy/p102/00252_4.9dB.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio><br>
-
-    Conv-TasNet <span class="reference" data-ref="convtasnet"></span>:<br>
-    <audio id="audioPlayerConvTasNet" controls>
-        <source id="audioSourceConvTasNet" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/convtasnet/p102/00252_4.9dB.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio><br>
-
-    CDiffuSE <span class="reference" data-ref="cdiffuse"></span>:<br>
-    <audio id="audioPlayerCDiffuSE" controls>
-        <source id="audioSourceCDiffuSE" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/cdiffuse/p102/00252_4.9dB.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio><br>
-
-    Demucs <span class="reference" data-ref="demucs"></span>:<br>
-    <audio id="audioPlayerDemucs" controls>
-        <source id="audioSourceDemucs" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/demucs/p102/00252_4.9dB.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio><br>
-
-    SGMSE+ <span class="reference" data-ref="sgmse"></span>:<br>
-    <audio id="audioPlayerSGMSE" controls>
-        <source id="audioSourceSGMSE" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/sgmse/p102/00252_4.9dB.wav" type="audio/wav">
+        <source id="audioSourceNoisy" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/noisy/p257_259.wav" type="audio/wav">
         Your browser does not support the audio element.
     </audio><br>
 
     Clean: <br>
     <audio id="audioPlayerClean" controls>
-        <source id="audioSourceClean" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/clean/p102/00252_4.9dB.wav" type="audio/wav">
+        <source id="audioSourceClean" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/clean/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    Conv-TasNet <span class="reference" data-ref="convtasnet"></span>:<br>
+    <audio id="audioPlayerConvTasNet" controls>
+        <source id="audioSourceConvTasNet" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/convtasnet/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    MetricGAN+ <span class="reference" data-ref="metricgan"></span>:<br>
+    <audio id="audioPlayerMetricGAN" controls>
+        <source id="audioSourceMetricGAN" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/metricgan/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    SE-MAMBA <span class="reference" data-ref="se-mamba"></span>:<br>
+    <audio id="audioPlayerSEMAMBA" controls>
+        <source id="audioSourceSEMAMBA" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/se-mamba/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    SGMSE+ <span class="reference" data-ref="sgmse"></span>:<br>
+    <audio id="audioPlayerSGMSE" controls>
+        <source id="audioSourceSGMSE" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/sgmse/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M1:<br>
+    <audio id="audioPlayerM1" controls>
+        <source id="audioSourceM1" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m1/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M2:<br>
+    <audio id="audioPlayerM2" controls>
+        <source id="audioSourceM2" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m2/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M3:<br>
+    <audio id="audioPlayerM3" controls>
+        <source id="audioSourceM3" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m3/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M4 (EDM2):<br>
+    <audio id="audioPlayerM4" controls>
+        <source id="audioSourceM4" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m4/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M5:<br>
+    <audio id="audioPlayerM5" controls>
+        <source id="audioSourceM5" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m5/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M6:<br>
+    <audio id="audioPlayerM6" controls>
+        <source id="audioSourceM6" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m6/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M7:<br>
+    <audio id="audioPlayerM7" controls>
+        <source id="audioSourceM7" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m7/p257_259.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio><br>
+
+    M8:<br>
+    <audio id="audioPlayerM8" controls>
+        <source id="audioSourceM8" src="https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m8/p257_259.wav" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
+    
 </p>
 
 <script>
     function playAudio() {
         var audioPlayerNoisy = document.getElementById('audioPlayerNoisy');
-        var audioPlayerConvTasNet = document.getElementById('audioPlayerConvTasNet');
-        var audioPlayerCDiffuSE = document.getElementById('audioPlayerCDiffuSE');
-        var audioPlayerDemucs = document.getElementById('audioPlayerDemucs');
-        var audioPlayerSGMSE = document.getElementById('audioPlayerSGMSE');
         var audioPlayerClean = document.getElementById('audioPlayerClean');
+        var audioPlayerConvTasNet = document.getElementById('audioPlayerConvTasNet');
+        var audioPlayerMetricGAN = document.getElementById('audioPlayerMetricGAN');
+        var audioPlayerSEMAMBA = document.getElementById('audioPlayerSEMAMBA');
+        var audioPlayerSGMSE = document.getElementById('audioPlayerSGMSE');
+        var audioPlayerM1 = document.getElementById('audioPlayerM1');
+        var audioPlayerM2 = document.getElementById('audioPlayerM2');
+        var audioPlayerM3 = document.getElementById('audioPlayerM3');
+        var audioPlayerM4 = document.getElementById('audioPlayerM4');
+        var audioPlayerM5 = document.getElementById('audioPlayerM5');
+        var audioPlayerM6 = document.getElementById('audioPlayerM6');
+        var audioPlayerM7 = document.getElementById('audioPlayerM7');
+        var audioPlayerM8 = document.getElementById('audioPlayerM8');
+
         var audioSourceNoisy = document.getElementById('audioSourceNoisy');
-        var audioSourceConvTasNet = document.getElementById('audioSourceConvTasNet');
-        var audioSourceCDiffuSE = document.getElementById('audioSourceCDiffuSE');
-        var audioSourceDemucs = document.getElementById('audioSourceDemucs');
-        var audioSourceSGMSE = document.getElementById('audioSourceSGMSE');
         var audioSourceClean = document.getElementById('audioSourceClean');
+        var audioSourceConvTasNet = document.getElementById('audioSourceConvTasNet');
+        var audioSourceMetricGAN = document.getElementById('audioSourceMetricGAN');
+        var audioSourceSEMAMBA = document.getElementById('audioSourceSEMAMBA');
+        var audioSourceSGMSE = document.getElementById('audioSourceSGMSE');
+        var audioSourceM1 = document.getElementById('audioSourceM1');
+        var audioSourceM2 = document.getElementById('audioSourceM2');
+        var audioSourceM3 = document.getElementById('audioSourceM3');
+        var audioSourceM4 = document.getElementById('audioSourceM4');
+        var audioSourceM5 = document.getElementById('audioSourceM5');
+        var audioSourceM6 = document.getElementById('audioSourceM6');
+        var audioSourceM7 = document.getElementById('audioSourceM7');
+        var audioSourceM8 = document.getElementById('audioSourceM8');
+
         var selectedAudio = document.getElementById('audioSelect').value;
 
         if (selectedAudio) {
             // Set the source of the source elements, not the audio players
-            audioSourceNoisy.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/noisy/" + selectedAudio + ".wav";
+            audioSourceNoisy.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/noisy/" + selectedAudio + ".wav";
             audioPlayerNoisy.load(); // Load the selected audio file using the audio player
 
-            audioSourceConvTasNet.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/convtasnet/" + selectedAudio + ".wav";
+            audioSourceClean.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/clean/" + selectedAudio + ".wav";
+            audioPlayerClean.load(); // Load the selected audio file using the audio player
+
+            audioSourceConvTasNet.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/convtasnet/" + selectedAudio + ".wav";
             audioPlayerConvTasNet.load(); // Load the selected audio file using the audio player
 
-            audioSourceCDiffuSE.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/cdiffuse/" + selectedAudio + ".wav";
-            audioPlayerCDiffuSE.load(); // Load the selected audio file using the audio player
+            audioSourceMetricGAN.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/metricgan/" + selectedAudio + ".wav";
+            audioPlayerMetricGAN.load(); // Load the selected audio file using the audio player
 
-            audioSourceDemucs.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/demucs/" + selectedAudio + ".wav";
-            audioPlayerDemucs.load(); // Load the selected audio file using the audio player
+            audioSourceSEMAMBA.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/se-mamba/" + selectedAudio + ".wav";
+            audioPlayerSEMAMBA.load(); // Load the selected audio file using the audio player
 
-            audioSourceSGMSE.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/sgmse/" + selectedAudio + ".wav";
+            audioSourceSGMSE.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/sgmse/" + selectedAudio + ".wav";
             audioPlayerSGMSE.load(); // Load the selected audio file using the audio player
 
-            audioSourceClean.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/interspeech2024-ears/files/ears-wham/clean/" + selectedAudio + ".wav";
-            audioPlayerClean.load(); // Load the selected audio file using the audio player
+            audioSourceM1.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m1/" + selectedAudio + ".wav";
+            audioPlayerM1.load(); // Load the selected audio file using the audio player
+
+            audioSourceM2.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m2/" + selectedAudio + ".wav";
+            audioPlayerM2.load(); // Load the selected audio file using the audio player
+
+            audioSourceM3.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m3/" + selectedAudio + ".wav";
+            audioPlayerM3.load(); // Load the selected audio file using the audio player
+
+            audioSourceM4.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m4/" + selectedAudio + ".wav";
+            audioPlayerM4.load(); // Load the selected audio file using the audio player
+
+            audioSourceM5.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m5/" + selectedAudio + ".wav";
+            audioPlayerM5.load(); // Load the selected audio file using the audio player
+
+            audioSourceM6.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m6/" + selectedAudio + ".wav";
+            audioPlayerM6.load(); // Load the selected audio file using the audio player
+
+            audioSourceM7.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m7/" + selectedAudio + ".wav";
+            audioPlayerM7.load(); // Load the selected audio file using the audio player
+
+            audioSourceM8.src = "https://www2.informatik.uni-hamburg.de/sp/audio/publications/icassp2025_gense/m8/" + selectedAudio + ".wav";
+            audioPlayerM8.load(); // Load the selected audio file using the audio player
 
             // This will ensure that the audio players are updating their children source elements
             // and reloading them
@@ -422,7 +538,7 @@ layout: default
             "sbse": "A. Jukić, R. Korostik, J. Balam, and B. Ginsburg, “Schrödinger bridge for generative speech enhancement,” ISCA Interspeech, pp. 1175-1179, 2024.",
             "convtasnet": "Y. Luo and N. Mesgarani, “Conv-TasNet: Surpassing ideal time–frequency magnitude masking for speech separation,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 27, no. 8, pp. 1256–1266, 2019.",
             "metricgan": "S.-W. Fu, C. Yu, T.-A. Hsieh, P. Plantinga, M. Ravanelli, X. Lu, and Y. Tsao, “MetricGAN+: An improved version of MetricGAN for speech enhancement,” ISCA Interspeech, pp. 201-205, 2021.",
-            "se-mamba": "R.Chao, W.-H.Cheng, M.LaQuatra, S.M.Siniscalchi, C.-H.H. Yang, S.-W. Fu, and Y. Tsao, “An investigation of incorporating mamba for speech enhancement,” arXiv preprint arXiv:2405.06573, 2024.",
+            "se-mamba": "R. Chao, W.-H. Cheng, M. La Quatra, S.M. Siniscalchi, C.-H.H. Yang, S.-W. Fu, and Y. Tsao, “An investigation of incorporating mamba for speech enhancement,” arXiv preprint arXiv:2405.06573, 2024.",
         };
 
         // Collect keys in order of their appearance, without duplication
